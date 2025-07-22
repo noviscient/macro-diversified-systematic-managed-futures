@@ -1,0 +1,27 @@
+{
+  "title": "Macro Diversified Systematic Futures",
+  "description": "An award-winning Investment Manager who uses proprietary research to systematically manage futures portfolios.",
+  "metrics": [
+    { "label": "Annualized Return", "value": "31.4%" },
+    { "label": "Annualized Volatility", "value": "14.6%" },
+    { "label": "Sharpe Ratio", "value": "1.84" },
+    { "label": "Winning Months", "value": "56.7%" },
+    { "label": "Max. Drawdown", "value": "19.9%" }
+  ],
+  "strategy": "A fully systematic global macro futures strategy that dynamically allocates both long and short exposures across futures markets such as bonds, short interest rates, and commodities in an attempt to consistently capitalize on new trading opportunities as they arise.",
+  "general_information": {
+    "Novi Symbol": "APEM_2",
+    "Stage": "Live",
+    "Source": "Back Testing",
+    "Inception Date": "June 2004",
+    "Instrument": "Global Multi-Asset",
+    "Location": "Jersey"
+  },
+  "return_statistics": [
+    { "period": "1M", "best": "4.73", "worst": "-4.70", "avg": "0.11", "mdn": "0.14" },
+    { "period": "3M", "best": "8.44", "worst": "-7.77", "avg": "0.34", "mdn": "0.39" },
+    { "period": "1Y", "best": "18.61", "worst": "-10.20", "avg": "1.39", "mdn": "1.34" },
+    { "period": "3Y", "best": "25.80", "worst": "-14.89", "avg": "4.19", "mdn": "3.81" },
+    { "period": "5Y", "best": "39.95", "worst": "-16.45", "avg": "7.10", "mdn": "7.00" }
+  ]
+}
