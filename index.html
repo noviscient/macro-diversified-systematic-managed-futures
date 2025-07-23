@@ -156,24 +156,19 @@ for (let key in data.general_information) {
             const dates = data.map(row => row.date);
             const strategy = data.map(row => row.Strategy);
             const qai = data.map(row => row["IQ Hedge Multi-Strategy Tracker ETF (QAI)"]);
-            const dow = data.map(row => row["Dow Jones Industrial Average"]);
+            const msci = data.map(row => row["MSCI World Index"]);
 
             // Helper to filter ranges
             const strategyBacktest = [];
             const datesBacktest = [];
-            const strategyTrack = [];
-            const datesTrack = [];
             const strategyLive = [];
             const datesLive = [];
 
             data.forEach(row => {
             const d = row.date;
-            if (d < '2023-01') {
+            if (d <= '2024-01-12') {
                 strategyBacktest.push(row.Strategy);
                 datesBacktest.push(d);
-            } else if (d >= '2023-01' && d < '2024-01') {
-                strategyTrack.push(row.Strategy);
-                datesTrack.push(d);
             } else {
                 strategyLive.push(row.Strategy);
                 datesLive.push(d);
@@ -187,15 +182,6 @@ for (let key in data.general_information) {
                 name: 'Strategy - Backtest',
                 line: { color: '#4a4cb3', width: 2, dash: 'dot' },
                 cliponaxis: false,
-                hoverlabel: {namelength :-1}
-            };
-
-            const traceStrategyTrack = {
-                x: datesTrack,
-                y: strategyTrack,
-                mode: 'lines',
-                name: 'Strategy - Track Record',
-                line: { color: '#4a4cb3', width: 2, dash: 'dash' },
                 hoverlabel: {namelength :-1}
             };
 
@@ -217,11 +203,11 @@ for (let key in data.general_information) {
                 hoverlabel: {namelength :-1}
             };
 
-            const traceDow = {
+            const traceMSCI = {
                 x: dates,
-                y: dow,
+                y: msci,
                 mode: 'lines',
-                name: 'Dow Jones Industrial Average',
+                name: 'MSCI World Index',
                 line: { color: '#8dd397', width: 2 },
                 hoverlabel: {namelength :-1}
             };
@@ -252,7 +238,7 @@ for (let key in data.general_information) {
 
             Plotly.newPlot(
                 'net-return-chart',
-                [traceStrategyBacktest, traceStrategyTrack, traceStrategyLive, traceQAI, traceDow],
+                [traceStrategyBacktest, traceStrategyLive, traceQAI, traceMSCI],
                 layout,
                 {
                     responsive: true,
@@ -333,10 +319,10 @@ for (let key in data.general_information) {
                         marker: { color: '#9ecae1' }
                     };
 
-                    const traceDow = {
+                    const traceMSCI = {
                         x: dates,
-                        y: data.map(row => row["Dow Jones Industrial Average"]),
-                        name: 'Dow Jones Industrial Average',
+                        y: data.map(row => row["MSCI World Index"]),
+                        name: 'MSCI World Index',
                         type: 'bar',
                         marker: { color: '#a1d99b' }
                     };
@@ -376,7 +362,7 @@ for (let key in data.general_information) {
                         }
                     };
 
-                    Plotly.newPlot('worst-months-chart', [traceStrategy, traceQAI, traceDow], layout, {
+                    Plotly.newPlot('worst-months-chart', [traceStrategy, traceQAI, traceMSCI], layout, {
                     responsive: true,
                     displayModeBar: false
                     });
